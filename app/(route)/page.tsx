@@ -14,11 +14,10 @@ export default async function Home({
     {
       _createdAt: new Date(),
       views: 55,
-      author: { _id: 1, name:'Will', },
+      author: { _id: 1, name: "Will" },
       _id: 1,
       description: "this is a description",
-      image:
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapers.com%2Flive&psig=AOvVaw20JPRWix6cQdVaH6oQaYcm&ust=1751989229372000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIir6s-Kq44DFQAAAAAdAAAAABAE",
+      image: "https://picsum.photos/200/300",
       category: "Robots",
       title: "We Robots",
     },
@@ -45,15 +44,12 @@ export default async function Home({
 
         <ul className="mt-7 card_grid">
           {posts?.length > 0 ? (
-            posts.map((post:StartupCardType, index: number) => (
+            posts.map((post: StartupCardType, index: number) => (
               <StartupCard key={post?._id} post={post} />
             ))
           ) : (
-            <p className='no-results'>No Startups Found</p>
-          )
-            
-          
-        }
+            <p className="no-results">No Startups Found</p>
+          )}
         </ul>
       </section>
     </div>
