@@ -91,6 +91,27 @@
   background: #e0e0e0;
 }
 
+.cardButton {
+  background: linear-gradient(90deg, #6366f1 0%, #a78bfa 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+}
+
+.cardButton:hover, .cardButton:focus {
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(99,102,241,0.16);
+}
+
 @media (max-width: 600px) {
   .card {
     padding: 1rem;

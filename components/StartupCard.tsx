@@ -57,7 +57,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         <Link href={`?query=${category?.toLowerCase()}`}>
           <p className={styles.category}>{category}</p>
         </Link>
-        <Button className="startup-card_btn " asChild>
+        <Button className={styles.cardButton} asChild>
           <Link href={`/startup/${_id}`}>Details</Link>
         </Button>
       </div>

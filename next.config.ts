@@ -10,8 +10,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // experimental features removed
-  
 };
 
 export default nextConfig;
