@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "easymde/dist/easymde.min.css"
+import { Toaster } from "@/components/ui/sonner";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased">
         {children}
+        <Toaster/>
       </body>
     </html>
   );
