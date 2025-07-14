@@ -1,0 +1,44 @@
+.formContainer {
+  background: var(--background, #fff);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  padding: 2rem 2.5rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--foreground, #222);
+  margin-bottom: 0.25rem;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.95em;
+  margin-top: 0.2rem;
+}
+
+.buttonArea {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.mdEditor {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  background: #fafbfc;
+  margin-top: 0.25rem;
+} 

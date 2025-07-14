@@ -11,7 +11,7 @@ const page = async () => {
   return (
     <>
     <section>
-        <h1 className='heading'>Submit Your Start up</h1>
+        <h1 className='text-2xl font-bold text-center text-primary my-10'>Submit Your Start up</h1>
     </section>
 
      <StartupForm />
