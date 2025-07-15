@@ -9,13 +9,14 @@ import { Send } from "lucide-react";
 import { useActionState } from "react";
 import { formSchema } from "../lib/validation";
 import { toast } from "sonner";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import styles from "./StartupForm.module.css";
+import { createPitch } from "@/lib/actions";
 
 const startupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [pitch, setPitch] = useState("");
-  const router = useRouter;
+  const router = useRouter();
   const handleFormSubmit = async (prevState: any, formData: FormData) => {
     try {
       const formValues = {
@@ -29,31 +30,29 @@ const startupForm = () => {
       await formSchema.parseAsync(formValues);
       console.log(formValues);
 
-      //   const result = await createIdea(prevState,formData, pitch)
+      const result = await createPitch(prevState, formData, pitch);
 
-      // cosole.log(result)
-      //   if(result.status === "SUCCESS"){
-      //     toast("Your pitch was submitted successfully!");
-      //   }
+      if (result.status === "SUCCESS") {
+        toast("Your pitch was submitted successfully!");
+      }
 
-      //   router.push(`'startup/${result.id}`)
+      router.push(`'startup/${result.id}`);
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors = error.flatten().fieldErrors;
         setErrors(fieldErrors as unknown as Record<string, string>);
 
+        toast("There was an error with your inputs try again");
         return { ...prevState, error: "validation failed", status: "ERROR" };
       }
 
       toast("There was an error with your inputs try again");
-
       return {
         ...prevState,
         error: "An unexpected error has occured",
         status: "ERROR",
       };
     }
-    toast("There was an error with your inputs try again");
   };
   const [state, formAction, isPending] = useActionState(handleFormSubmit, {
     error: "",
@@ -63,14 +62,18 @@ const startupForm = () => {
   return (
     <form action={formAction} className={styles.formContainer}>
       <div className={styles.field}>
-        <label htmlFor="title" className={styles.label}>Title</label>
+        <label htmlFor="title" className={styles.label}>
+          Title
+        </label>
         <Input id="title" name="title" required placeholder="Startup Title" />
 
         {errors.title && <p className={styles.error}>{errors.title}</p>}
       </div>
 
       <div className={styles.field}>
-        <label htmlFor="description" className={styles.label}>Description</label>
+        <label htmlFor="description" className={styles.label}>
+          Description
+        </label>
         <Textarea
           id="description"
           name="description"
@@ -78,11 +81,15 @@ const startupForm = () => {
           placeholder="Startup Description"
         />
 
-        {errors.description && <p className={styles.error}>{errors.description}</p>}
+        {errors.description && (
+          <p className={styles.error}>{errors.description}</p>
+        )}
       </div>
 
       <div className={styles.field}>
-        <label htmlFor="category" className={styles.label}>Category</label>
+        <label htmlFor="category" className={styles.label}>
+          Category
+        </label>
         <Input
           id="category"
           name="category"
@@ -93,14 +100,19 @@ const startupForm = () => {
         {errors.category && <p className={styles.error}>{errors.category}</p>}
       </div>
       <div className={styles.field}>
-        <label htmlFor="link" className={styles.label}>Image URL</label>
+        <label htmlFor="link" className={styles.label}>
+          Image URL
+        </label>
         <Input id="link" name="link" required placeholder="Startup Link" />
 
         {errors.link && <p className={styles.error}>{errors.link}</p>}
       </div>
 
       <div className={styles.field} data-color-mode="light">
-        <label htmlFor="pitch" className={styles.label}> Pitch</label>
+        <label htmlFor="pitch" className={styles.label}>
+          {" "}
+          Pitch
+        </label>
         <div className={styles.mdEditor}>
           <MDEditor
             value={pitch}
@@ -110,7 +122,8 @@ const startupForm = () => {
             height={300}
             style={{ borderRadius: 20, overflow: "hidden" }}
             textareaProps={{
-              placeholder: "Briefly describe your idea and the problem it solves",
+              placeholder:
+                "Briefly describe your idea and the problem it solves",
             }}
           />
         </div>

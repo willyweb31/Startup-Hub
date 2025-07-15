@@ -100,7 +100,7 @@
         },
         "optional": true
       },
-      "image": {
+      "link": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
