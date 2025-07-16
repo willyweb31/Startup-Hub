@@ -36,7 +36,7 @@ const startupForm = () => {
         toast("Your pitch was submitted successfully!");
       }
 
-      router.push(`'startup/${result.id}`);
+      router.push(`'startup/${result._id}`);
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors = error.flatten().fieldErrors;

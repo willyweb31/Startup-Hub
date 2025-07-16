@@ -14,8 +14,8 @@ export default async function Home({
   const query = (await searchParams).query;
   const params = { search: query || null };
 
-  const session = await auth()
-  console.log(session?.id)
+  const session = await auth();
+  console.log(session?.id);
 
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
@@ -33,7 +33,7 @@ export default async function Home({
         </div>
       </section>
 
-      <section className="section_container">
+      <section className="">
         <p className="text-30-semibold text-center  mb-10 mt-10 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
           {query ? `Search results for "${query}"` : "All Startups"}
         </p>
