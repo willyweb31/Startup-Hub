@@ -34,8 +34,8 @@ async function navbar() {
                 <button type="submit">Log Out</button>
               </form>
 
-              <Link href={`/user/${session?.id}`}></Link>
-              <span>{session?.user?.name}</span>
+              <Link href={`/user/${session?.id}`}>{session?.user?.name}</Link>
+              <span></span>
             </>
           ) : (
             <form
