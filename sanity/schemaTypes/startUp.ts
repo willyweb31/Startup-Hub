@@ -30,7 +30,7 @@ export const startup = defineType({
     defineField({
       name: "link",
       type: "url",
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().uri({ scheme: ["http", "https"] }),
     }),
     defineField({ name: "pitch", type: "markdown" }),
   ],
