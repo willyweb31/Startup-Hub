@@ -22,7 +22,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   } = post;
 
   return (
-    <li className={styles.card}>
+    <div className={styles.card}>
       <div className={styles.header}></div>
       <p className={styles.date}>{formatDate(_createdAt)}</p>
       <div className={styles.views}>
@@ -61,7 +61,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
           <Link href={`/startup/${_id}`}>Details</Link>
         </Button>
       </div>
-    </li>
+    </div>
   );
 };
 

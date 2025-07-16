@@ -37,16 +37,19 @@ export default async function Home({
         <p className="text-30-semibold text-center  mb-10 mt-10 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
           {query ? `Search results for "${query}"` : "All Startups"}
         </p>
-
-        <ul className={styles.section_container}>
-          {posts?.length > 0 ? (
-            posts.map((post: StartupTypeCard, index: number) => (
-              <StartupCard key={post?._id} post={post} />
-            ))
-          ) : (
-            <p className="no-results">No Startups Found</p>
-          )}
-        </ul>
+        <div className={styles.posts_container}>
+          <ul className={styles.posts_list}>
+            {posts?.length > 0 ? (
+              posts.map((post: StartupTypeCard, index: number) => (
+                <li key={post?._id}>
+                  <StartupCard post={post} />
+                </li>
+              ))
+            ) : (
+              <p className="no-results">No Startups Found</p>
+            )}
+          </ul>
+        </div>
       </section>
       <SanityLive />
     </div>

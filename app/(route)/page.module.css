@@ -34,7 +34,42 @@
 
 .section_container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   gap: 1.5em;
+}
+.posts_container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5em;
+}
+
+.posts_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+.posts_list > li {
+  flex: 1 1 320px;
+  max-width: 350px;
+  min-width: 260px;
+  display: flex;
+}
+
+@media (max-width: 800px) {
+  .posts_list {
+    gap: 1rem;
+  }
+  .posts_list > li {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
 }
